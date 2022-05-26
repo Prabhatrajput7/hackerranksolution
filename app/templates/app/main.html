@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+
+{% block style %}
+<style>
+    .center {
+      margin: auto;
+      width: 60%;
+      padding: 10px;
+    }
+    </style>
+{% endblock  %}
+
+{% block content %}
+
+<form method="POST">
+    {% csrf_token %}
+<div class="center">
+    {{form.as_p}}
+    <button type="submit" >Add Task</button>
+  </div>
+</form>
+{% endblock  %}

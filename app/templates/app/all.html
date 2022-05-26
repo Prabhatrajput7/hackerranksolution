@@ -1,0 +1,51 @@
+{% extends 'app/base.html' %}
+
+{% block style %}
+<style>
+    .center {
+      margin: auto;
+      width: 60%;
+      padding: 10px;
+    }
+
+    .centert {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+{% endblock  %}
+
+{% block content %}
+{% if todo %}
+
+<div class="center">
+    <h1>List of Tasks</h1>
+  </div>
+
+  <table class="centert">
+    <tr>
+      <th>Username</th>
+      <th>Task</th>
+      <th>Status</th>
+    </tr>
+    {% for t in todo %}
+    <tr>
+        
+      <td>{{t.name}}</td>
+      <td>{{t.task}}</td>
+      {% if t.completed %}
+      <td> <a href="">Completed</a> </td>
+      {% else %}
+      <td> <a href="">Not Completed</a> </td>
+      {% endif %}
+      
+    </tr>
+    {% endfor %}
+    
+  </table>
+{% else %}
+<div class="center">
+    <h1>NO TASK HERE</h1>
+  </div>
+  {% endif %}
+{% endblock  %}
